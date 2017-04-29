@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "first auto updater",
   "main": "main.js",
   "repository": "git@github.com:akameco/electron-updater-example.git",
