@@ -1,9 +1,13 @@
 {
   "name": "electron-updater-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "first auto updater",
   "main": "main.js",
   "repository": "git@github.com:akameco/electron-updater-example.git",
   "author": "akameco",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "electron-log": "^2.2.3",
+    "electron-updater": "^1.14.2"
+  }
 }
