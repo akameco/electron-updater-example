@@ -10,8 +10,8 @@
   },
 	"scripts": {
 		"pack": "build --dir",
-		"release": "build --mac -p always",
-		"dist": "build"
+		"release": "build",
+		"dist": "build "
 	},
   "dependencies": {
     "electron-log": "^2.2.3",
