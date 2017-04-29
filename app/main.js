@@ -1,9 +1,6 @@
-// Copyright (c) The LHTML team
-// See LICENSE for details.
-
-const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
-const log = require('electron-log');
-const {autoUpdater} = require("electron-updater");
+const { app, BrowserWindow, Menu, protocol, ipcMain } = require('electron')
+const log = require('electron-log')
+const { autoUpdater } = require('electron-updater')
 
 //-------------------------------------------------------------------
 // Logging
@@ -13,9 +10,9 @@ const {autoUpdater} = require("electron-updater");
 // This logging setup is not required for auto-updates to work,
 // but it sure makes debugging easier :)
 //-------------------------------------------------------------------
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
-log.info('App starting...');
+autoUpdater.logger = log
+autoUpdater.logger.transports.file.level = 'info'
+log.info('App starting...')
 
 //-------------------------------------------------------------------
 // Define the menu
@@ -25,23 +22,24 @@ log.info('App starting...');
 let template = []
 if (process.platform === 'darwin') {
   // OS X
-  const name = app.getName();
+  const name = app.getName()
   template.unshift({
     label: name,
     submenu: [
       {
         label: 'About ' + name,
-        role: 'about'
+        role: 'about',
       },
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click() { app.quit(); }
+        click() {
+          app.quit()
+        },
       },
-    ]
+    ],
   })
 }
-
 
 //-------------------------------------------------------------------
 // Open a window that displays the version
@@ -52,49 +50,49 @@ if (process.platform === 'darwin') {
 // for the app to show a window than to have to click "About" to see
 // that updates are working.
 //-------------------------------------------------------------------
-let win;
+let win
 
 function sendStatusToWindow(text) {
-  log.info(text);
-  win.webContents.send('message', text);
+  log.info(text)
+  win.webContents.send('message', text)
 }
 function createDefaultWindow() {
-  win = new BrowserWindow();
-  win.webContents.openDevTools();
+  win = new BrowserWindow()
+  win.webContents.openDevTools()
   win.on('closed', () => {
-    win = null;
-  });
-  win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
-  return win;
+    win = null
+  })
+  win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`)
+  return win
 }
 autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
+  sendStatusToWindow('Checking for update...')
 })
 autoUpdater.on('update-available', (ev, info) => {
-  sendStatusToWindow('Update available.');
+  sendStatusToWindow('Update available.')
 })
 autoUpdater.on('update-not-available', (ev, info) => {
-  sendStatusToWindow('Update not available.');
+  sendStatusToWindow('Update not available.')
 })
 autoUpdater.on('error', (ev, err) => {
-  sendStatusToWindow('Error in auto-updater.');
+  sendStatusToWindow('Error in auto-updater.')
 })
 autoUpdater.on('download-progress', (ev, progressObj) => {
-  sendStatusToWindow('Download progress...');
+  sendStatusToWindow('Download progress...')
 })
 autoUpdater.on('update-downloaded', (ev, info) => {
-  sendStatusToWindow('Update downloaded; will install in 5 seconds');
-});
+  sendStatusToWindow('Update downloaded; will install in 5 seconds')
+})
 app.on('ready', function() {
   // Create the Menu
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
 
-  createDefaultWindow();
-});
+  createDefaultWindow()
+})
 app.on('window-all-closed', () => {
-  app.quit();
-});
+  app.quit()
+})
 
 //-------------------------------------------------------------------
 // Auto updates
@@ -122,10 +120,10 @@ autoUpdater.on('update-downloaded', (ev, info) => {
   // In your application, you don't need to wait 5 seconds.
   // You could call autoUpdater.quitAndInstall(); immediately
   setTimeout(function() {
-    autoUpdater.quitAndInstall();  
+    autoUpdater.quitAndInstall()
   }, 5000)
 })
 
-app.on('ready', function()  {
-  autoUpdater.checkForUpdates();
-});
+app.on('ready', function() {
+  autoUpdater.checkForUpdates()
+})
