@@ -4,7 +4,7 @@
   "description": "first auto updater",
   "main": "main.js",
   "repository": "git@github.com:akameco/electron-updater-example.git",
-  "author": "akameco",
+  "author": "akameco <akameco.t@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "electron-log": "^2.2.3",
