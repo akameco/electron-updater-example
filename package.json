@@ -30,7 +30,7 @@
       {
         "provider": "github",
         "owner": "akameco",
-        "repo": "electron-updater-example"
+        "private": true
       }
     ],
     "nsis": {
