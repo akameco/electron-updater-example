@@ -36,3 +36,7 @@ install:
 
 script:
 - yarn run release
+
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
