@@ -29,8 +29,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "akameco",
-        "private": true
+        "owner": "akameco"
       }
     ],
     "nsis": {
