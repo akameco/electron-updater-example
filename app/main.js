@@ -69,10 +69,10 @@ autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...')
 })
 autoUpdater.on('update-available', (ev, info) => {
-  sendStatusToWindow('Update available.')
+  sendStatusToWindow(`Update available.${info}`)
 })
 autoUpdater.on('update-not-available', (ev, info) => {
-  sendStatusToWindow('Update not available.')
+  sendStatusToWindow(`Update not available.\n${info}`)
 })
 autoUpdater.on('error', (ev, err) => {
   sendStatusToWindow(`Error in auto-updater.\n${err}`)
