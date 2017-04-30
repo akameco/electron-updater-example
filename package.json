@@ -16,5 +16,40 @@
   "dependencies": {
     "electron-log": "^2.2.3",
     "electron-updater": "^1.14.2"
+  },
+  "build": {
+    "appId": "com.github.akameco.electronupdaterexample",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "akameco"
+      }
+    ],
+    "nsis": {
+      "perMachine": true
+    }
   }
 }
