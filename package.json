@@ -5,6 +5,7 @@
   "description": "electron-updater example project",
   "author": "akameco <akameco.t@gmail.com>",
   "devDependencies": {
+    "extract-zip": "=1.6.0",
     "electron": "^1.6.6",
     "electron-builder": "^17.1.1"
   },
