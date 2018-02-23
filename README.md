@@ -48,3 +48,6 @@ This repo contains the **bare minimum code** to have an auto-updating Electron a
 
 10. Open the installed version of the app and see that it updates itself.
 
+
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/akameco/electron-updater-example.svg)](https://greenkeeper.io/)
