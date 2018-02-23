@@ -5,9 +5,9 @@
   "description": "electron-updater example project",
   "author": "akameco <akameco.t@gmail.com>",
   "devDependencies": {
-    "extract-zip": "=1.6.0",
+    "extract-zip": "1.6.6",
     "electron": "^1.6.6",
-    "electron-builder": "^17.1.1"
+    "electron-builder": "^20.0.8"
   },
   "scripts": {
     "pack": "build --dir",
@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "electron-log": "^2.2.3",
-    "electron-updater": "^1.14.2"
+    "electron-updater": "^2.20.1"
   }
 }
